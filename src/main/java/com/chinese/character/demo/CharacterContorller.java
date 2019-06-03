@@ -46,6 +46,6 @@ public class CharacterContorller {
       }
     }
 
-    return "<p style=\"font-size:45px;color:green\">"+Characters.getCharacter(i)+"</p>";
+    return "<html><body><p style=\"font-size:45px;color:green\">"+Characters.getCharacter(i)+"</p></body></html>";
   }
 }

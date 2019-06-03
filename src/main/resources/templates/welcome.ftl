@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-Date: ${time?date}<br>
-Message: ${message}
+<p style="font-size:45px;color:green">${message}</p>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Map;
 import java.util.Random;
 
 @Controller
@@ -19,7 +20,7 @@ public class CharacterContorller {
   private static Random random = new Random();
 
   @GetMapping("/get")
-  public String applyDocumentDownload(ServletRequest request){
+  public String applyDocumentDownload(ServletRequest request, Map<String, Object> model){
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
     int i ;
@@ -47,7 +48,9 @@ public class CharacterContorller {
         break;
       }
     }
+    model.put("message", Characters.getCharacter(i));
 
-    return "<!DOCTYPE html><html><body><p style=\"font-size:45px;color:green\">"+Characters.getCharacter(i)+"</p></body></html>";
+
+    return "<!DOCTYPE html><html><body><p style=\"font-size:45px;color:green\"></p></body></html>";
   }
 }

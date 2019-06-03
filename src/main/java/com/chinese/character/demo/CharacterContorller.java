@@ -1,7 +1,9 @@
 package com.chinese.character.demo;
 
 import com.chinese.character.demo.characters.Characters;
+import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,16 +13,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Random;
 
-@RestController
+@Controller
 @RequestMapping(value="/character", produces="application/json; charset=UTF-8")
 public class CharacterContorller {
   private static Random random = new Random();
 
-  @RequestMapping(value = "/get", method = RequestMethod.GET)
+  @GetMapping("/get")
   public String applyDocumentDownload(ServletRequest request){
     HttpServletRequest req = (HttpServletRequest) request;
     HttpSession session = req.getSession();
-    int i = 0;
+    int i ;
 
     boolean flag = true;
 
@@ -46,6 +48,6 @@ public class CharacterContorller {
       }
     }
 
-    return "<html><body><p style=\"font-size:45px;color:green\">"+Characters.getCharacter(i)+"</p></body></html>";
+    return "<!DOCTYPE html><html><body><p style=\"font-size:45px;color:green\">"+Characters.getCharacter(i)+"</p></body></html>";
   }
 }

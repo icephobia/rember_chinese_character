@@ -1,1 +1,1 @@
-"# rember_chinese_character" 
+帮助儿童学习汉字
